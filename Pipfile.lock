@@ -1,0 +1,52 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "ffb8efc41f22b61a8ef07ccd1f060f5e509d1015affccf14bdbaff1b5dbee2a4"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.7"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "ariadne": {
+            "hashes": [
+                "sha256:92c189b5ddb7c31182d0934700c6485ace6bb96b75a43880f4ae21374ae222fc",
+                "sha256:aab57955c1446f2ca50103bd536d3dbe8aa61030b00344c6d8d771dec5d05b5d"
+            ],
+            "index": "pypi",
+            "version": "==0.2.0"
+        },
+        "graphql-core-next": {
+            "hashes": [
+                "sha256:95509fc50cd632c5b004b959ffc397d47c709ba297162aa841839f610f1a6c70",
+                "sha256:e40b5a6cb879fd269f4cfa0db267496273b575a6bfe487dfc46559fa46781c51"
+            ],
+            "version": "==1.0.1"
+        },
+        "typing": {
+            "hashes": [
+                "sha256:4027c5f6127a6267a435201981ba156de91ad0d1d98e9ddc2aa173453453492d",
+                "sha256:57dcf675a99b74d64dacf6fba08fb17cf7e3d5fdff53d4a30ea2a5e7e52543d4",
+                "sha256:a4c8473ce11a65999c8f59cb093e70686b6c84c98df58c1dae9b3b196089858a"
+            ],
+            "version": "==3.6.6"
+        },
+        "typing-extensions": {
+            "hashes": [
+                "sha256:07b2c978670896022a43c4b915df8958bec4a6b84add7f2c87b2b728bda3ba64",
+                "sha256:f3f0e67e1d42de47b5c67c32c9b26641642e9170fe7e292991793705cd5fef7c",
+                "sha256:fb2cd053238d33a8ec939190f30cfd736c00653a85a2919415cecf7dc3d9da71"
+            ],
+            "version": "==3.7.2"
+        }
+    },
+    "develop": {}
+}
