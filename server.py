@@ -1,37 +1,55 @@
 from ariadne import ResolverMap, gql, start_simple_server
 
-# Define types using Schema Definition Language (https://graphql.org/learn/schema/)
-# Wrapping string in gql function provides validation and better error traceback
-type_defs = gql("""
-    type Query {
-        people: [Person!]!
-    }
+from src.schema.Hero import hero
+from src.loaders.heroes import batch_get_heroes
 
-    type Person {
-        firstName: String
-        lastName: String
-        age: Int
-        fullName: String
-    }
+# SCHEMA DEFINITION
+type_defs = gql("""
+type Query {
+    heroes: [Hero!]!
+}
+
+type Hero {
+    name: String!
+    shortName: String
+    title: String
+    moveType: MoveType!
+    weaponType: WeaponType!
+}
+
+enum MoveType {
+    Armored
+    Cavalry
+    Flying
+    Infantry
+}
+
+enum WeaponType {
+    BLUE_LANCE
+    BLUE_TOME
+    BLUE_BOW
+    BLUE_BREATH
+    GREEN_AXE
+    GREEN_TOME
+    GREEN_BOW
+    GREEN_BREATH
+    RED_SWORD
+    RED_TOME
+    RED_BOW
+    RED_BREATH
+    COLORLESS_BOW
+    COLORLESS_DAGGER
+    COLORLESS_STAFF
+}
 """)
 
-# Map resolver functions to type fields using ResolverMap
+# RESOLVERS
 query = ResolverMap("Query")
 
-# Resolvers are simple python functions
-@query.field("people")
-def resolve_people(*_):
-    return [
-        {"firstName": "John", "lastName": "Doe", "age": 21},
-        {"firstName": "Bob", "lastName": "Boberson", "age": 24},
-    ]
 
+@query.field("heroes")
+def resolve_heroes(*_):
+    return batch_get_heroes()
 
-person = ResolverMap("Person")
-
-@person.field("fullName")
-def resolve_person_fullname(person, *_):
-    return "%s %s" % (person["firstName"], person["lastName"])
-
-# Create and run dev server that provides api browser
-start_simple_server(type_defs, [query, person]) # Visit http://127.0.0.1:8888 to see API browser!
+# START SERVER
+start_simple_server(type_defs, [query, hero], host="localhost", port=8888)

@@ -11,6 +11,7 @@ autopep8 = "*"
 ariadne = "*"
 aiodataloader = "*"
 requests = "*"
+promise = "*"
 
 [requires]
 python_version = "3.7"
