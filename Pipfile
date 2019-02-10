@@ -8,10 +8,13 @@ pylint = "*"
 autopep8 = "*"
 
 [packages]
-ariadne = "*"
 aiodataloader = "*"
 requests = "*"
 promise = "*"
+
+[packages.ariadne]
+git = "https://github.com/mirumee/ariadne.git"
+ref = "32ece6f522dec8c316c6f18306a78f24aa693ca9"
 
 [requires]
 python_version = "3.7"
