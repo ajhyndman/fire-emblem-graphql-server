@@ -1,4 +1,9 @@
-from ariadne import ResolverMap, gql, start_simple_server
+from ariadne import (
+    ResolverMap,
+    gql,
+    make_executable_schema,
+    start_simple_server
+)
 
 from src.schema.Hero import hero
 from src.loaders.heroes import batch_get_heroes
@@ -51,5 +56,7 @@ query = ResolverMap("Query")
 def resolve_heroes(*_):
     return batch_get_heroes()
 
+
 # START SERVER
-start_simple_server(type_defs, [query, hero], host="localhost", port=8888)
+schema = make_executable_schema(type_defs, [query, hero])
+start_simple_server(schema, host="localhost", port=8888)
