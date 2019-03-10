@@ -9,16 +9,32 @@ from src.schema.Hero import hero
 from src.loaders.heroes import batch_get_heroes
 
 # SCHEMA DEFINITION
-type_defs = gql("""
+type_defs = gql('''
 type Query {
     heroes: [Hero!]!
 }
 
+"""
+A hero present in the [Fire Emblem: Heroes](https://fire-emblem-heroes.com/) game.
+
+---
+
+Data about this hero is pulled from the [Fire Emblem: Heroes Wiki](https://feheroes.gamepedia.com/).
+"""
 type Hero {
+    "The canonical, unique name of the hero"
     name: String!
+
+    "A short form of the hero's name"
     shortName: String
+
+    "The hero's title.  e.g. 'Marquess of Ostia'"
     title: String
+
+    "The movement type of the hero"
     moveType: MoveType!
+
+    "The weapon type that the hero can wield"
     weaponType: WeaponType!
 }
 
@@ -46,7 +62,7 @@ enum WeaponType {
     COLORLESS_DAGGER
     COLORLESS_STAFF
 }
-""")
+''')
 
 # RESOLVERS
 query = ResolverMap("Query")
