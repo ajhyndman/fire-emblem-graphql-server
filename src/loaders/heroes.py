@@ -3,7 +3,7 @@ from aiodataloader import DataLoader
 from src.request import requestApiQuery
 
 
-async def batch_get_heroes():
+async def batch_get_heroes(keys):
     rows = await requestApiQuery({
         'action': 'cargoquery',
         'tables': ','.join([
@@ -37,9 +37,9 @@ async def batch_get_heroes():
 
     heroes = [{'name': row['Name'], 'title': row['Title'], 'weaponType': row['WeaponType']} for row in rows]
 
-    return heroes
+    return [heroes]
 
 
 class HeroesLoader(DataLoader):
     async def batch_load_fn(self, keys):
-        return await batch_get_heroes()
+        return await batch_get_heroes(keys)
