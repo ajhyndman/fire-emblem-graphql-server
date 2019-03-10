@@ -4,17 +4,15 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+black = "==18.9b0"
 pylint = "*"
-autopep8 = "*"
 
 [packages]
 aiodataloader = "*"
-requests = "*"
-promise = "*"
-
-[packages.ariadne]
-git = "https://github.com/mirumee/ariadne.git"
-ref = "32ece6f522dec8c316c6f18306a78f24aa693ca9"
+aiohttp_requests = "*"
+ariadne = {git = "https://github.com/mirumee/ariadne.git",editable = true,ref = "5f3f7dea2"}
+starlette = "*"
+uvicorn = "*"
 
 [requires]
 python_version = "3.7"
