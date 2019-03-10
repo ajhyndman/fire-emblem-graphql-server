@@ -6,7 +6,7 @@ from ariadne import (
 )
 
 from src.schema.Hero import hero
-from src.loaders.heroes import batch_get_heroes
+from src.loaders.heroes import HeroesLoader
 
 # SCHEMA DEFINITION
 type_defs = gql('''
@@ -67,10 +67,11 @@ enum WeaponType {
 # RESOLVERS
 query = ResolverMap("Query")
 
+heroes_loader = HeroesLoader()
 
 @query.field("heroes")
-def resolve_heroes(*_):
-    return batch_get_heroes()
+async def resolve_heroes(*_):
+    return await heroes_loader.load()
 
 
 # START SERVER

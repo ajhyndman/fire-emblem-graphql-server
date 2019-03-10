@@ -1,11 +1,10 @@
-from promise import Promise
-from promise.dataloader import DataLoader
+from aiodataloader import DataLoader
 
 from src.request import requestApiQuery
 
 
-def batch_get_heroes():
-    rows = requestApiQuery({
+async def batch_get_heroes():
+    rows = await requestApiQuery({
         'action': 'cargoquery',
         'tables': ','.join([
             'Heroes',
@@ -42,5 +41,5 @@ def batch_get_heroes():
 
 
 class HeroesLoader(DataLoader):
-    def batch_load_fn(self, keys):
-        return batch_get_heroes()
+    async def batch_load_fn(self, keys):
+        return await batch_get_heroes()
