@@ -1,11 +1,9 @@
 from typing import Any
 
 from ariadne import (
-    ResolverMap,
     gql,
     load_schema_from_path,
     make_executable_schema,
-    start_simple_server
 )
 from starlette.applications import Starlette
 import uvicorn

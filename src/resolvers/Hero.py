@@ -1,3 +1,3 @@
-from ariadne import ResolverMap
+from ariadne import ObjectType
 
-hero = ResolverMap("Hero")
+hero = ObjectType("Hero")
