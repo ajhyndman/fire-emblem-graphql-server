@@ -41,5 +41,5 @@ async def batch_get_heroes(keys):
 
 
 class HeroesLoader(DataLoader):
-    async def batch_load_fn(self, keys):
+    async def batch_load_fn(self, keys): # pylint: disable=E0202
         return await batch_get_heroes(keys)
