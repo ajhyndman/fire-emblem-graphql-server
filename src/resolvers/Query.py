@@ -1,8 +1,8 @@
 from src.loaders.heroes import HeroesLoader
-from ariadne import ObjectType
+from ariadne import QueryType
 
 # RESOLVERS
-query = ObjectType("Query")
+query = QueryType()
 
 @query.field("heroes")
 async def resolve_heroes(obj, info):
