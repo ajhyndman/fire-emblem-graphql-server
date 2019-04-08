@@ -5,10 +5,10 @@ from ariadne import (
     load_schema_from_path,
     make_executable_schema,
 )
+from ariadne.asgi import GraphQL
 from starlette.applications import Starlette
 import uvicorn
 
-from src.graphql import GraphQL
 from src.loaders.heroes import HeroesLoader
 from src.resolvers.Hero import hero
 from src.resolvers.Query import query
