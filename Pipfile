@@ -10,7 +10,7 @@ pylint = "*"
 [packages]
 aiodataloader = "*"
 aiohttp_requests = "*"
-ariadne = {git = "https://github.com/mirumee/ariadne.git",editable = true,ref = "5f3f7dea2"}
+ariadne = {git = "https://github.com/mirumee/ariadne.git",editable = true,ref = "22bbf05"}
 starlette = "*"
 uvicorn = "*"
 
