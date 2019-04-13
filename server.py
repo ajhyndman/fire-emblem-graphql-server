@@ -18,7 +18,7 @@ type_defs = load_schema_from_path("./schema.graphql")
 
 
 class LoaderGraphQL(GraphQL):
-    async def context_for_request(self, request: Any) -> Any:
+    def context_for_request(self, request: Any, data: Any) -> Any:
         return {
             "loaders": {
                 "heroes_loader": HeroesLoader(),

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "d9da674abd87d48f5f63d144e7677ff647e04edc7e1c57574816eda71bc402d6"
+            "sha256": "306cefab5fa8a645d85ac8a49175775a0d1b8d69cb179f1c432060c6dde41ccb"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -59,9 +59,12 @@
             "version": "==0.1.2"
         },
         "ariadne": {
-            "editable": true,
-            "git": "https://github.com/mirumee/ariadne.git",
-            "ref": "22bbf056ce19ceec1b511e20d1893e89a7d35a96"
+            "hashes": [
+                "sha256:01ed4572ff9ee24c1b06f932e5516bcc2e2ba23d129fb5a0e9fe4a732eae74ad",
+                "sha256:c4b30b6138c7a9b8f890e80aed1303ae82deef70c3b7c5f218f7b2d620e046e8"
+            ],
+            "index": "pypi",
+            "version": "==0.3.0"
         },
         "async-timeout": {
             "hashes": [
