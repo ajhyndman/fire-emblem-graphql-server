@@ -1,9 +1,9 @@
-import requests
+from aiohttp_requests import requests
 
 WIKI_HOST = 'https://feheroes.gamepedia.com'
 
 
-def requestApiQuery(queryParams):
+async def requestApiQuery(queryParams):
     defaultQueryParams = {
         'action': 'query',
         'format': 'json',
@@ -12,8 +12,8 @@ def requestApiQuery(queryParams):
     allQueryParams = {**defaultQueryParams, **queryParams}
 
     # fetch and parse as json
-    response = requests.get(f'{WIKI_HOST}/api.php', params=allQueryParams)
-    payload = response.json()
+    response = await requests.get(f'{WIKI_HOST}/api.php', params=allQueryParams)
+    payload = await response.json()
 
     # extract meaningful data from API response
     cargoquery = payload.get('cargoquery', [])
