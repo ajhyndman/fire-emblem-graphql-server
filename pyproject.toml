@@ -1,9 +1,14 @@
 [tool.poetry]
-name = "fire-emblem-graphql-server"
+# Poetry is designed for library packages. By naming this package "src" I can
+# tell poetry to look in the src directory for code.
+name = "src"
 version = "0.1.0"
 description = ""
 authors = ["Andrew Hyndman <ajhyndman@hotmail.com>"]
 license = "MIT"
+
+[tool.poetry.scripts]
+start = "server:main"
 
 [tool.poetry.dependencies]
 python = "^3.7"
