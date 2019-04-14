@@ -1,13 +1,15 @@
 from aiohttp_requests import requests
 import aiohttp.web
+import logging
 
 from src.constants import API_BATCH_SIZE, WIKI_HOST
 
 
 async def requestApiQuery(queryParams):
     defaultQueryParams = {"action": "query", "format": "json"}
-
     allQueryParams = {**defaultQueryParams, **queryParams}
+
+    logging.info(f"requestApiQuery: {allQueryParams}")
 
     # fetch and parse as json
     response = await requests.get(f"{WIKI_HOST}/api.php", params=allQueryParams)
