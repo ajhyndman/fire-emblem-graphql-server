@@ -27,26 +27,34 @@ type Hero {
 }
 
 enum MoveType {
-    Armored
-    Cavalry
-    Flying
-    Infantry
+    ARMORED
+    CAVALRY
+    FLYING
+    INFANTRY
 }
 
 enum WeaponType {
-    BLUE_LANCE
-    BLUE_TOME
+    BLUE_BEAST
     BLUE_BOW
     BLUE_BREATH
-    GREEN_AXE
-    GREEN_TOME
-    GREEN_BOW
-    GREEN_BREATH
-    RED_SWORD
-    RED_TOME
-    RED_BOW
-    RED_BREATH
+    BLUE_DAGGER
+    BLUE_LANCE
+    BLUE_TOME
+    COLORLESS_BEAST
     COLORLESS_BOW
+    COLORLESS_BREATH
     COLORLESS_DAGGER
     COLORLESS_STAFF
+    GREEN_AXE
+    GREEN_BEAST
+    GREEN_BOW
+    GREEN_BREATH
+    GREEN_DAGGER
+    GREEN_TOME
+    RED_BEAST
+    RED_BOW
+    RED_BREATH
+    RED_DAGGER
+    RED_SWORD
+    RED_TOME
 }
