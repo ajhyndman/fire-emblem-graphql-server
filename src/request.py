@@ -17,7 +17,10 @@ async def requestApiQuery(queryParams):
 
     # extract meaningful data from API response
     cargoquery = payload.get("cargoquery", [])
-    return [row.get("title") for row in cargoquery]
+    rows = [row.get("title") for row in cargoquery]
+    logging.info(f"requestApiQuery.response: {rows}")
+
+    return rows
 
 
 async def requestApiRows(queryParams, offset=0):
