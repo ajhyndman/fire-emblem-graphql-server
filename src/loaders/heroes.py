@@ -54,6 +54,13 @@ async def batch_get_heroes(keys):
             "summonRarities": parseRarities(row["SummonRarities"]),
             "title": row["Title"],
             "weaponType": row["WeaponType"],
+            "growthRates": {
+                "HP": row["HP"],
+                "ATK": row["Atk"],
+                "SPD": row["Spd"],
+                "DEF": row["Def"],
+                "RES": row["Res"],
+            },
         }
         for row in rows
     ]

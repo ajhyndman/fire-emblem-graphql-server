@@ -12,7 +12,7 @@ from src.resolvers.WeaponType import weapon_type
 from src.resolvers.Query import query
 
 # SCHEMA DEFINITION
-type_defs = load_schema_from_path("./schema.graphql")
+type_defs = load_schema_from_path("src/schema.graphql")
 
 
 class LoaderGraphQL(GraphQL):

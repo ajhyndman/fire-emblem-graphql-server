@@ -12,6 +12,13 @@ A hero present in the [Fire Emblem: Heroes](https://fire-emblem-heroes.com/) gam
 Data about this hero is pulled from the [Fire Emblem: Heroes Wiki](https://feheroes.gamepedia.com/).
 """
 type Hero {
+    """
+    Growth rates per stat for a hero (out of 100).
+
+    See also: [Stat growth - Fire Emblem Heroes Wiki](https://feheroes.gamepedia.com/Stat_growth)
+    """
+    growthRates: HeroStats!
+
     "The canonical, unique name of the hero"
     name: String!
 
@@ -32,6 +39,14 @@ type Hero {
     releaseDate: Date
     rewardRarities: [Int!]!
     summonRarities: [Int!]!
+}
+
+type HeroStats {
+    HP: Int!
+    ATK: Int!
+    SPD: Int!
+    DEF: Int!
+    RES: Int!
 }
 
 enum MoveType {
