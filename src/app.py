@@ -3,7 +3,6 @@ from typing import Any
 from ariadne import gql, load_schema_from_path, make_executable_schema
 from ariadne.asgi import GraphQL
 from starlette.applications import Starlette
-import uvicorn
 
 from src.loaders.heroes import HeroesLoader
 from src.resolvers.Hero import hero
@@ -24,10 +23,3 @@ graphql_server = LoaderGraphQL(schema)
 app = Starlette()
 app.add_route("/", graphql_server)
 app.add_websocket_route("/", graphql_server)
-
-
-def main():
-    # START SERVER
-    app.debug = True
-
-    uvicorn.run(app, host="localhost", port=8888)

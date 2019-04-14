@@ -8,7 +8,7 @@ authors = ["Andrew Hyndman <ajhyndman@hotmail.com>"]
 license = "MIT"
 
 [tool.poetry.scripts]
-start = "server:main"
+dev = "dev:main"
 
 [tool.poetry.dependencies]
 python = "^3.7"
