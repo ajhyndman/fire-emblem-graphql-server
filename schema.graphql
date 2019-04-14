@@ -2,6 +2,8 @@ type Query {
     allHeroes: [Hero!]!
 }
 
+scalar Date
+
 """
 A hero present in the [Fire Emblem: Heroes](https://fire-emblem-heroes.com/) game.
 
@@ -14,16 +16,22 @@ type Hero {
     name: String!
 
     "A short form of the hero's name"
-    shortName: String
+    shortName: String!
 
     "The hero's title.  e.g. 'Marquess of Ostia'"
-    title: String
+    title: String!
 
     "The movement type of the hero"
     moveType: MoveType!
 
     "The weapon type that the hero can wield"
     weaponType: WeaponType!
+
+    origin: String!
+    poolDate: Date
+    releaseDate: Date
+    rewardRarities: [Int!]!
+    summonRarities: [Int!]!
 }
 
 enum MoveType {

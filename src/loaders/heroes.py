@@ -4,6 +4,10 @@ from aiodataloader import DataLoader
 from src.request import requestApiRows
 
 
+def parseRarities(string: str):
+    return [int(x) for x in string.split(',') if x != '']
+
+
 async def batch_get_heroes(keys):
     rows = await requestApiRows(
         {
@@ -40,10 +44,16 @@ async def batch_get_heroes(keys):
 
     heroes = [
         {
-            "name": row["Name"],
+            "moveType": row["MoveType"],
+            "name": row["FullName"],
+            "origin": row["Origin"],
+            "poolDate": row["PoolDate"],
+            "releaseDate": row["ReleaseDate"],
+            "rewardRarities": parseRarities(row["RewardRarities"]),
+            "shortName": row["Name"],
+            "summonRarities": parseRarities(row["SummonRarities"]),
             "title": row["Title"],
             "weaponType": row["WeaponType"],
-            "moveType": row["MoveType"],
         }
         for row in rows
     ]

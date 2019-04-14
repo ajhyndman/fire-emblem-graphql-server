@@ -5,6 +5,7 @@ from ariadne.asgi import GraphQL
 from starlette.applications import Starlette
 
 from src.loaders.heroes import HeroesLoader
+from src.resolvers.Date import date_scalar
 from src.resolvers.Hero import hero
 from src.resolvers.MoveType import move_type
 from src.resolvers.WeaponType import weapon_type
@@ -19,7 +20,9 @@ class LoaderGraphQL(GraphQL):
         return {"loaders": {"heroes_loader": HeroesLoader()}, "request": request}
 
 
-schema = make_executable_schema(type_defs, [query, hero, weapon_type, move_type])
+schema = make_executable_schema(
+    type_defs, [query, hero, weapon_type, move_type, date_scalar]
+)
 graphql_server = LoaderGraphQL(schema)
 
 app = Starlette()
