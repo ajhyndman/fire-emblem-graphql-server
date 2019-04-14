@@ -39,7 +39,12 @@ async def batch_get_heroes(keys):
     )
 
     heroes = [
-        {"name": row["Name"], "title": row["Title"], "weaponType": row["WeaponType"]}
+        {
+            "name": row["Name"],
+            "title": row["Title"],
+            "weaponType": row["WeaponType"],
+            "moveType": row["MoveType"],
+        }
         for row in rows
     ]
 
