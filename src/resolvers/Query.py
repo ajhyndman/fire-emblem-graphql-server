@@ -4,6 +4,6 @@ from ariadne import QueryType
 # RESOLVERS
 query = QueryType()
 
-@query.field("heroes")
-async def resolve_heroes(obj, info):
+@query.field("allHeroes")
+async def resolve_all_heroes(obj, info):
     return await info.context["loaders"]["heroes_loader"].load("ALL")
