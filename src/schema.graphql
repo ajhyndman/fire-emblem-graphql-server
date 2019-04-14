@@ -12,6 +12,9 @@ A hero present in the [Fire Emblem: Heroes](https://fire-emblem-heroes.com/) gam
 Data about this hero is pulled from the [Fire Emblem: Heroes Wiki](https://feheroes.gamepedia.com/).
 """
 type Hero {
+    "The hero's stats at level one, by rarity!"
+    baseStats: HeroBaseStats!
+
     """
     Growth rates per stat for a hero (out of 100).
 
@@ -37,8 +40,16 @@ type Hero {
     origin: String!
     poolDate: Date
     releaseDate: Date
-    rewardRarities: [Int!]!
-    summonRarities: [Int!]!
+    rewardRarities: [Rarity!]!
+    summonRarities: [Rarity!]!
+}
+
+type HeroBaseStats {
+    ONE_STAR: HeroStats
+    TWO_STAR: HeroStats
+    THREE_STAR: HeroStats
+    FOUR_STAR: HeroStats
+    FIVE_STAR: HeroStats!
 }
 
 type HeroStats {
@@ -54,6 +65,14 @@ enum MoveType {
     CAVALRY
     FLYING
     INFANTRY
+}
+
+enum Rarity {
+    ONE_STAR
+    TWO_STAR
+    THREE_STAR
+    FOUR_STAR
+    FIVE_STAR
 }
 
 enum WeaponType {

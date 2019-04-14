@@ -6,7 +6,7 @@ from src.constants import API_BATCH_SIZE, WIKI_HOST
 
 
 async def requestApiQuery(queryParams):
-    defaultQueryParams = {"action": "query", "format": "json"}
+    defaultQueryParams = {"action": "query", "format": "json", "formatversion": 2}
     allQueryParams = {**defaultQueryParams, **queryParams}
 
     logging.info(f"requestApiQuery: {allQueryParams}")

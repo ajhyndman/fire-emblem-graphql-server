@@ -1,18 +1,17 @@
-import logging
 from aiodataloader import DataLoader
 
 from src.request import requestApiRows
 
 
 def parseRarities(string: str):
-    return [int(x) for x in string.split(',') if x != '']
+    return [int(x) for x in string.split(",") if x != ""]
 
 
 async def batch_get_heroes(keys):
     rows = await requestApiRows(
         {
             "action": "cargoquery",
-            "tables": ",".join(["Heroes", "HeroBaseStats", "HeroGrowths"]),
+            "tables": ",".join(["Heroes", "HeroGrowths"]),
             "fields": ",".join(
                 [
                     "Heroes._pageName=FullName",
@@ -33,12 +32,7 @@ async def batch_get_heroes(keys):
                 ]
             ),
             "group_by": "Heroes._pageName",
-            "join_on": ",".join(
-                [
-                    "HeroBaseStats._pageName = Heroes._pageName",
-                    "Heroes._pageName = HeroGrowths._pageName",
-                ]
-            ),
+            "join_on": "Heroes._pageName=HeroGrowths._pageName",
         }
     )
 
