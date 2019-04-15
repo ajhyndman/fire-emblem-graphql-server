@@ -41,6 +41,7 @@ type Hero {
     poolDate: Date
     releaseDate: Date
     rewardRarities: [Rarity!]!
+    skills: [HeroSkill!]!
     summonRarities: [Rarity!]!
 }
 
@@ -50,6 +51,13 @@ type HeroBaseStats {
     THREE_STAR: HeroStats
     FOUR_STAR: HeroStats
     FIVE_STAR: HeroStats!
+}
+
+type HeroSkill {
+    defaultRarity: Rarity
+    skill: Skill!
+    skillPosition: Int!
+    unlockRarity: Rarity!
 }
 
 type HeroStats {
@@ -73,6 +81,14 @@ enum Rarity {
     THREE_STAR
     FOUR_STAR
     FIVE_STAR
+}
+
+type Skill {
+    effect: String!
+    exclusive: Boolean!
+    might: Int
+    name: String!
+    sp: String!
 }
 
 enum WeaponType {

@@ -3,6 +3,10 @@ from aiodataloader import DataLoader
 from src.request import requestApiRows
 
 
+def parseRarity(string: str):
+    return int(string) if string != "" else None
+
+
 def parseRarities(string: str):
     return [int(x) for x in string.split(",") if x != ""]
 
@@ -36,6 +40,23 @@ async def batch_get_heroes(keys):
         }
     )
 
+    skill_rows = await requestApiRows(
+        {
+            "action": "cargoquery",
+            "tables": ",".join(["Heroes", "HeroSkills"]),
+            "fields": ",".join(
+                [
+                    "Heroes._pageName=HeroFullName",
+                    "HeroSkills.skill=WikiName",
+                    "HeroSkills.skillPos=SkillPos",
+                    "HeroSkills.unlockRarity=UnlockRarity",
+                    "HeroSkills.defaultRarity=DefaultRarity",
+                ]
+            ),
+            "join_on": "Heroes._pageName=HeroSkills._pageName",
+        }
+    )
+
     heroes = [
         {
             "moveType": row["MoveType"],
@@ -45,6 +66,16 @@ async def batch_get_heroes(keys):
             "releaseDate": row["ReleaseDate"],
             "rewardRarities": parseRarities(row["RewardRarities"]),
             "shortName": row["Name"],
+            "skills": [
+                {
+                    "key": skill_row["WikiName"],
+                    "defaultRarity": parseRarity(skill_row["DefaultRarity"]),
+                    "unlockRarity": parseRarity(skill_row["UnlockRarity"]),
+                    "skillPosition": skill_row["SkillPos"],
+                }
+                for skill_row in skill_rows
+                if skill_row["HeroFullName"] == row["FullName"]
+            ],
             "summonRarities": parseRarities(row["SummonRarities"]),
             "title": row["Title"],
             "weaponType": row["WeaponType"],
