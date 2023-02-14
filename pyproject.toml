@@ -14,7 +14,7 @@ dev = "dev:main"
 python = "^3.7"
 aiodataloader = "^0.1.2"
 aiohttp_requests = "^0.1.2"
-starlette = "^0.11.4"
+starlette = "^0.25.0"
 uvicorn = "^0.6.1"
 ariadne = "^0.3.0"
 
